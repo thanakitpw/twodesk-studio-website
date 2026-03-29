@@ -9,6 +9,8 @@ interface Props {
   params: Promise<{ id: string; locale: string }>;
 }
 
+export const dynamicParams = true;
+
 export async function generateStaticParams() {
   return projects.map((project) => ({
     id: project.id,

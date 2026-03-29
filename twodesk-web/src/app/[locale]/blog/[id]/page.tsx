@@ -8,6 +8,8 @@ interface Props {
   params: Promise<{ id: string; locale: string }>;
 }
 
+export const dynamicParams = true;
+
 export async function generateStaticParams() {
   return articles.map((article) => ({
     id: article.id,
@@ -34,7 +36,7 @@ export default async function ArticleDetailPage({ params }: Props) {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Image */}
-      <section className="relative h-[40vh] w-full md:h-[60vh]">
+      <section className="relative h-[30vh] w-full md:h-[60vh]">
         <Image
           src={article.image}
           alt={article.title}
@@ -47,7 +49,7 @@ export default async function ArticleDetailPage({ params }: Props) {
       </section>
 
       {/* Article Content */}
-      <section className="mx-auto max-w-[1440px] px-6 py-16 md:px-20">
+      <section className="mx-auto max-w-[1440px] px-5 py-10 md:px-20 md:py-16">
         <Link
           href="/blog"
           className="mb-8 inline-flex items-center gap-2 text-sm text-[#999] transition-colors hover:text-[#1a1a1a]"
@@ -60,11 +62,11 @@ export default async function ArticleDetailPage({ params }: Props) {
           <p className="mb-4 text-[11px] tracking-[0.5px] text-[#999]">
             {article.category} &middot; {article.date}
           </p>
-          <h1 className="mb-8 text-3xl font-bold tracking-tight text-[#1a1a1a] md:text-4xl">
+          <h1 className="mb-6 text-2xl font-bold tracking-tight text-[#1a1a1a] md:mb-8 md:text-4xl">
             {article.title}
           </h1>
 
-          <div className="space-y-6 text-base font-light leading-relaxed text-[#4a4a4a]">
+          <div className="space-y-5 text-sm font-light leading-relaxed text-[#4a4a4a] md:space-y-6 md:text-base">
             <p>
               {article.excerpt} In this article, we explore the ideas and
               inspirations that shaped this topic — from early observations to

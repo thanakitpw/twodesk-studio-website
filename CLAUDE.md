@@ -20,7 +20,7 @@
 | TypeScript | `typescript-expert`, `typescript-pro` |
 | Python | `python-pro`, `python-patterns` |
 | API | `api-design-principles`, `api-patterns` |
-| Database | `database-design`, `postgresql` |
+| Database | `database-design`, `postgresql`, `supabase-postgres-best-practices` |
 | Security | `security-audit`, `web-security-testing` |
 | Deploy | `deployment-engineer`, `devops-deploy` |
 | Test | `test-driven-development`, `e2e-testing` |
@@ -144,7 +144,33 @@
 
 ## ระบบหลังบ้าน (Admin Panel)
 - **อ้างอิงไฟล์ `ADMIN_SYSTEM_PLAN.md` เสมอ** — เป็น source of truth สำหรับ admin system ทั้งหมด
+- **Task list ละเอียด: `ADMIN_TASKS.md`** — 155 tasks ใน 7 Phases พร้อม checkbox
 - ประกอบด้วย 18 หน้าจอ, database schema, user roles, tech stack
 - ใช้ shadcn/ui + Twodesk DS (ขาว-ดำ-เทา, Helvetica)
 - ข้อมูลตัวอย่างโปรเจกต์ลูกค้า: `TD_PROJECT_TEXT.md`
 - Design mockups อยู่ใน Paper (artboards ชื่อ "Admin — ...")
+- **อ้างอิง design จาก `paper-design/admin-design/` เป็นหลัก** — มีภาพ PNG ทุกหน้า:
+  - `Admin — Dashboard.png`
+  - `Admin — Projects List.png`
+  - `Admin — Project Editor.png`
+  - `Admin — Blog List.png`
+  - `Admin — Messages.png`
+  - `Admin — Media Library.png`
+  - `Admin — Pages Editor.png`
+  - `Admin — Settings.png`
+  - `Admin — Login.png`
+
+### Database Management
+- **ใช้ Supabase MCP** สำหรับจัดการ database โดยตรง (สร้างตาราง, query, migrations)
+- **ใช้ skill `supabase-postgres-best-practices`** ทุกครั้งที่เขียน SQL, schema, หรือ optimize queries
+- MCP config อยู่ที่ `.mcp.json` — project ref: `fvssgqjchklkmtkureag`
+
+### กฎการทำงาน
+- **หลังทำเสร็จแต่ละ Phase** ต้องรัน testing ละเอียดด้วย Agent ทุกครั้ง:
+  - ใช้ Playwright E2E test (config อยู่ที่ `twodesk-web/playwright.config.ts`)
+  - ทดสอบทุกหน้าที่เกี่ยวข้องกับ Phase นั้น
+  - ทดสอบ responsive (mobile 390px, tablet 768px, desktop 1440px)
+  - ทดสอบ 2 ภาษา (TH/EN) ว่าแสดงถูกต้อง
+  - ทดสอบ edge cases: empty state, error state, loading state
+  - รัน build ตรวจ TypeScript errors ก่อน commit
+  - สรุปผล test ให้ผู้ใช้ดูก่อน commit
