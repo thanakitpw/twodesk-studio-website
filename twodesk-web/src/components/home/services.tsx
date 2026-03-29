@@ -19,38 +19,40 @@ export default function Services() {
   const t = useTranslations("home");
 
   return (
-    <section className="mx-auto max-w-[1440px] px-20 py-[100px]">
+    <section className="mx-auto max-w-[1440px] px-5 md:px-20 py-16 md:py-[100px]">
       {/* Header */}
       <ScrollAnimate>
-        <div className="mb-12 flex items-start justify-between">
+        <div className="mb-8 md:mb-12 flex flex-col md:flex-row md:items-start md:justify-between gap-4">
           <div>
-            <p className="mb-4 text-xs font-normal uppercase tracking-[0.2em] text-[#999]">
+            <p className="mb-3 md:mb-4 text-xs font-normal uppercase tracking-[0.2em] text-[#999]">
               {t("servicesLabel")}
             </p>
-            <h2 className="text-[32px] font-bold tracking-tight">
+            <h2 className="text-[26px] md:text-[32px] font-bold tracking-tight">
               {t("servicesTitle")}
             </h2>
           </div>
-          <p className="max-w-[480px] text-right text-base font-light leading-[26px] text-[#6b6b6b]">
+          <p className="max-w-[480px] md:text-right text-sm md:text-base font-light leading-[24px] md:leading-[26px] text-[#6b6b6b]">
             {t("servicesDescription")}
           </p>
         </div>
       </ScrollAnimate>
 
       {/* Grid */}
-      <div className="grid grid-cols-4 gap-6">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
         {SERVICE_KEYS.map((service, i) => (
           <ScrollAnimate key={i}>
-            <div className="overflow-hidden rounded-lg bg-[#f7f7f5]">
-              <div
-                className="h-[220px] rounded bg-cover bg-center"
-                style={{ backgroundImage: `url('${SERVICE_IMAGES[i]}')` }}
-              />
-              <div className="px-6 py-5">
-                <h3 className="mb-2 text-base font-bold">
+            <div className="group overflow-hidden rounded-lg bg-[#f7f7f5] transition-all duration-300 hover:shadow-lg hover:-translate-y-1 cursor-pointer">
+              <div className="overflow-hidden rounded">
+                <div
+                  className="h-[140px] md:h-[220px] bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                  style={{ backgroundImage: `url('${SERVICE_IMAGES[i]}')` }}
+                />
+              </div>
+              <div className="px-4 md:px-6 py-4 md:py-5">
+                <h3 className="mb-1.5 md:mb-2 text-sm md:text-base font-bold transition-colors duration-300 group-hover:text-[#555]">
                   {t(service.title)}
                 </h3>
-                <p className="text-[13px] leading-[1.5] text-[#666]">
+                <p className="text-[12px] md:text-[13px] leading-[1.5] text-[#666]">
                   {t(service.desc)}
                 </p>
               </div>

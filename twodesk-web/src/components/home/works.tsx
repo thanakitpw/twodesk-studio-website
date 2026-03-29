@@ -1,4 +1,5 @@
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import ScrollAnimate from "@/components/scroll-animate";
 
 const TAG_STYLES: Record<string, string> = {
@@ -14,6 +15,7 @@ interface Project {
   nameKey: string;
   locationKey: string;
   size: "large" | "small";
+  slug: string;
 }
 
 const ROW_1: Project[] = [
@@ -25,6 +27,7 @@ const ROW_1: Project[] = [
     nameKey: "flowName",
     locationKey: "flowLocation",
     size: "large",
+    slug: "flow-the-hub",
   },
   {
     image:
@@ -34,6 +37,7 @@ const ROW_1: Project[] = [
     nameKey: "officeName",
     locationKey: "officeLocation",
     size: "small",
+    slug: "office-sakaew",
   },
 ];
 
@@ -46,6 +50,7 @@ const ROW_2: Project[] = [
     nameKey: "bbambbmName",
     locationKey: "bbambbmLocation",
     size: "small",
+    slug: "bbambbm-cafe",
   },
   {
     image:
@@ -55,6 +60,7 @@ const ROW_2: Project[] = [
     nameKey: "mmName",
     locationKey: "mmLocation",
     size: "large",
+    slug: "mm-bridal-house",
   },
 ];
 
@@ -68,11 +74,11 @@ const PROJECT_DATA: Record<string, { name: string; location: string }> = {
 
 function ProjectCard({
   project,
-  imgHeight,
+  desktopImgHeight,
   tagLabel,
 }: {
   project: Project;
-  imgHeight: string;
+  desktopImgHeight: string;
   tagLabel: string;
 }) {
   const data = PROJECT_DATA[project.nameKey];
@@ -80,22 +86,26 @@ function ProjectCard({
   return (
     <ScrollAnimate
       className={`min-w-0 ${
-        project.size === "large" ? "flex-[733]" : "flex-[523]"
+        project.size === "large" ? "md:flex-[733]" : "md:flex-[523]"
       }`}
     >
-      <div
-        className={`${imgHeight} mb-4 rounded bg-cover bg-center`}
-        style={{ backgroundImage: `url('${project.image}')` }}
-      />
-      <div className="mb-1.5 flex gap-2">
-        <span
-          className={`rounded-[3px] px-2 py-[3px] text-[10px] font-semibold uppercase tracking-[1px] ${TAG_STYLES[project.tagType]}`}
-        >
-          {tagLabel}
-        </span>
-      </div>
-      <h3 className="mb-1 text-xl font-semibold">{data.name}</h3>
-      <p className="text-sm text-[#999]">{data.location}</p>
+      <Link href={`/projects/${project.slug}`} className="group block">
+        <div className="overflow-hidden rounded mb-3 md:mb-4">
+          <div
+            className={`h-[240px] ${desktopImgHeight} bg-cover bg-center transition-transform duration-500 group-hover:scale-105`}
+            style={{ backgroundImage: `url('${project.image}')` }}
+          />
+        </div>
+        <div className="mb-1.5 flex gap-2">
+          <span
+            className={`rounded-[3px] px-2 py-[3px] text-[10px] font-semibold uppercase tracking-[1px] ${TAG_STYLES[project.tagType]}`}
+          >
+            {tagLabel}
+          </span>
+        </div>
+        <h3 className="mb-1 text-lg md:text-xl font-semibold transition-colors duration-300 group-hover:text-[#555]">{data.name}</h3>
+        <p className="text-xs md:text-sm text-[#999]">{data.location}</p>
+      </Link>
     </ScrollAnimate>
   );
 }
@@ -105,46 +115,46 @@ export default function Works() {
   const tc = useTranslations("common");
 
   return (
-    <section className="mx-auto max-w-[1440px] px-20 py-[100px]">
+    <section className="mx-auto max-w-[1440px] px-5 md:px-20 py-16 md:py-[100px]">
       {/* Header */}
       <ScrollAnimate>
-        <div className="mb-10 flex items-end justify-between">
+        <div className="mb-8 md:mb-10 flex items-end justify-between">
           <div>
-            <p className="mb-4 text-xs font-normal uppercase tracking-[0.2em] text-[#999]">
+            <p className="mb-3 md:mb-4 text-xs font-normal uppercase tracking-[0.2em] text-[#999]">
               {t("worksLabel")}
             </p>
-            <h2 className="text-[32px] font-bold tracking-tight">
+            <h2 className="text-[26px] md:text-[32px] font-bold tracking-tight">
               {t("worksTitle")}
             </h2>
           </div>
-          <a
-            href="#"
-            className="flex items-center gap-1.5 text-sm hover:opacity-60"
+          <Link
+            href="/projects"
+            className="flex items-center gap-1.5 text-xs md:text-sm hover:opacity-60 transition-opacity"
           >
             {t("viewAllProjects")} →
-          </a>
+          </Link>
         </div>
       </ScrollAnimate>
 
       {/* Row 1 */}
-      <div className="mb-10 flex gap-6">
+      <div className="mb-8 md:mb-10 flex flex-col md:flex-row gap-6">
         {ROW_1.map((project, i) => (
           <ProjectCard
             key={i}
             project={project}
-            imgHeight="h-[480px]"
+            desktopImgHeight="md:h-[480px]"
             tagLabel={tc(project.tagKey)}
           />
         ))}
       </div>
 
       {/* Row 2 */}
-      <div className="flex gap-6">
+      <div className="flex flex-col md:flex-row gap-6">
         {ROW_2.map((project, i) => (
           <ProjectCard
             key={i}
             project={project}
-            imgHeight="h-[420px]"
+            desktopImgHeight="md:h-[420px]"
             tagLabel={tc(project.tagKey)}
           />
         ))}

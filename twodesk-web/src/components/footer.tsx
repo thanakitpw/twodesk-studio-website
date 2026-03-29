@@ -7,44 +7,48 @@ export default function Footer() {
 
   return (
     <div className="bg-[#fafaf8]">
-      <footer className="mx-auto max-w-[1440px] px-20 pt-20 pb-10">
-        <div className="grid grid-cols-[2fr_1fr_1fr_1fr] gap-10 mb-10">
-          {/* Brand */}
-          <div>
-            <h3 className="text-[15px] font-bold tracking-[0.2em] text-[#999] mb-3">
-              TWO DESK
+      <footer className="mx-auto max-w-[1440px] px-5 md:px-20 pt-12 md:pt-20 pb-8 md:pb-10">
+        <div className="grid grid-cols-2 md:grid-cols-[2fr_1fr_1fr_1fr] gap-8 md:gap-10 mb-8 md:mb-10">
+          {/* Brand - full width on mobile */}
+          <div className="col-span-2 md:col-span-1">
+            <img
+              src="/logo-full.svg"
+              alt="TWO DESKS"
+              className="h-6 md:h-7 w-auto mb-3"
+            />
+            <h3 className="sr-only">TWO DESKS
             </h3>
-            <p className="text-[13px] text-[#666] leading-[1.7] whitespace-pre-line">
+            <p className="text-[12px] md:text-[13px] text-[#666] leading-[1.7] whitespace-pre-line">
               {t("brandDescription")}
             </p>
           </div>
 
           {/* Navigate */}
           <div>
-            <h4 className="text-[11px] font-bold tracking-[2px] uppercase text-[#999] mb-4">
+            <h4 className="text-[11px] font-bold tracking-[2px] uppercase text-[#999] mb-3 md:mb-4">
               {t("navigate")}
             </h4>
             <Link
               href="/projects"
-              className="block text-sm text-[#333] mb-2.5 hover:opacity-60 transition-opacity"
+              className="block text-sm text-[#333] mb-2 md:mb-2.5 hover:opacity-60 transition-opacity"
             >
               {nav("projects")}
             </Link>
             <Link
               href="/blog"
-              className="block text-sm text-[#333] mb-2.5 hover:opacity-60 transition-opacity"
+              className="block text-sm text-[#333] mb-2 md:mb-2.5 hover:opacity-60 transition-opacity"
             >
               {nav("blog")}
             </Link>
             <Link
               href="/about"
-              className="block text-sm text-[#333] mb-2.5 hover:opacity-60 transition-opacity"
+              className="block text-sm text-[#333] mb-2 md:mb-2.5 hover:opacity-60 transition-opacity"
             >
               {nav("about")}
             </Link>
             <Link
               href="/contact"
-              className="block text-sm text-[#333] mb-2.5 hover:opacity-60 transition-opacity"
+              className="block text-sm text-[#333] mb-2 md:mb-2.5 hover:opacity-60 transition-opacity"
             >
               {nav("contact")}
             </Link>
@@ -52,14 +56,14 @@ export default function Footer() {
 
           {/* Connect */}
           <div>
-            <h4 className="text-[11px] font-bold tracking-[2px] uppercase text-[#999] mb-4">
+            <h4 className="text-[11px] font-bold tracking-[2px] uppercase text-[#999] mb-3 md:mb-4">
               {t("connect")}
             </h4>
             <a
               href="https://www.instagram.com/twodesk.studio"
               target="_blank"
               rel="noopener noreferrer"
-              className="block text-sm text-[#333] mb-2.5 hover:opacity-60 transition-opacity"
+              className="block text-sm text-[#333] mb-2 md:mb-2.5 hover:opacity-60 transition-opacity"
             >
               {t("instagram")}
             </a>
@@ -67,20 +71,20 @@ export default function Footer() {
               href="https://www.facebook.com/twodeskstudio"
               target="_blank"
               rel="noopener noreferrer"
-              className="block text-sm text-[#333] mb-2.5 hover:opacity-60 transition-opacity"
+              className="block text-sm text-[#333] mb-2 md:mb-2.5 hover:opacity-60 transition-opacity"
             >
               {t("facebook")}
             </a>
             <a
               href="mailto:hello@twodesk.studio"
-              className="block text-sm text-[#333] mb-2.5 hover:opacity-60 transition-opacity"
+              className="block text-sm text-[#333] mb-2 md:mb-2.5 hover:opacity-60 transition-opacity"
             >
               {t("email")}
             </a>
           </div>
 
-          {/* Contact */}
-          <div>
+          {/* Contact - hidden on mobile to avoid duplication with Connect */}
+          <div className="hidden md:block">
             <h4 className="text-[11px] font-bold tracking-[2px] uppercase text-[#999] mb-4">
               {t("contactTitle")}
             </h4>
@@ -102,9 +106,9 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="flex justify-between pt-6 border-t border-[#e5e5e5] text-xs text-[#999]">
+        <div className="flex flex-col md:flex-row justify-between gap-2 pt-6 border-t border-[#e5e5e5] text-xs text-[#999]">
           <span>{t("copyright")}</span>
-          <span>{t("credit")}</span>
+          <span className="hidden md:inline">{t("credit")}</span>
         </div>
       </footer>
     </div>

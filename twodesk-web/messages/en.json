@@ -73,9 +73,15 @@
     "title": "Blog",
     "heading": "From the Studio",
     "subtitle": "From the Studio",
-    "description": "Thoughts on design, behind-the-scenes stories, and practical tips from our team.",
+    "description": "Design insights, project stories, and industry perspectives from Two Desk Studio.",
     "viewAll": "View All Articles",
     "backToBlog": "Back to Blog",
+    "readArticle": "Read Article",
+    "filterAll": "All",
+    "filterDesignTrends": "Design Trends",
+    "filterBehindTheScenes": "Behind the Scenes",
+    "filterTips": "Tips",
+    "filterStudioLife": "Studio Life",
     "article1Meta": "Design Trends · Mar 2025",
     "article1Title": "5 Interior Trends Shaping Bangkok's Cafe Scene",
     "article1Desc": "From raw concrete to biophilic design — what's next for the city's most creative spaces.",
@@ -92,12 +98,14 @@
     "hero": {
       "label": "About Us",
       "heading": "We believe great design starts with listening",
-      "description": "Two Desk Studio is a multidisciplinary design practice based in Bangkok. We specialize in interior, architecture, furniture, and craft design — approaching each project with curiosity, precision, and a deep respect for the spaces we shape."
+      "description": "Two Desk Studio is a multidisciplinary design practice based in Bangkok. We specialize in interior, architecture, furniture, and craft design — approaching each project with curiosity and precision.",
+      "story1": "Twodesk Studio began with two freshly graduated friends from architecture school, working together in a small room with only two desks. As time passed, more projects came in and the team gradually grew to four members who shared the same vision and passion for design.",
+      "story2": "In 2022, the team officially founded Twodesk Studio Co.,Ltd. — a design company built on collaboration, creativity, and the belief that great architecture begins with understanding."
     },
     "philosophy": {
       "heading": "Design with purpose, build with care",
-      "paragraph1": "At Two Desk, we approach every project as a conversation — between the space, the people who use it, and the vision behind it. We don't believe in one-size-fits-all solutions. Instead, we listen, research, and craft designs that are as unique as the stories they hold.",
-      "paragraph2": "Our studio brings together architecture, interior design, furniture, and craft under one roof. This multidisciplinary approach allows us to think holistically — from the structure of a building to the texture of a door handle — ensuring every detail serves a purpose."
+      "paragraph1": "Twodesk Studio began with two freshly graduated friends from architecture school, working together in a small room with only two desks. As time passed, more projects came in and the team gradually grew to four members who shared the same vision and passion for design.",
+      "paragraph2": "In 2022, the team officially founded Twodesk Studio Co.,Ltd. — a design company built on collaboration, creativity, and the belief that great architecture begins with understanding."
     },
     "team": {
       "heading": "The people behind Two Desk",
@@ -105,22 +113,22 @@
         "nut": {
           "name": "Nutthawat Jinyuyong",
           "nickname": "Nut",
-          "role": "Partner / Architect"
+          "role": "Design Director / Managing Partner / Co-founder"
         },
         "gun": {
-          "name": "Saharath Pornsiripithak",
+          "name": "Saharath Pornsiripitak",
           "nickname": "Gun",
-          "role": "Partner / Architect"
+          "role": "Technical Director / Co-founder"
         },
         "ping": {
           "name": "Chanisara Piyasuwan",
           "nickname": "Ping",
-          "role": "Partner / Architect"
+          "role": "Design Director / Co-founder"
         },
         "yo": {
           "name": "Chonnavee Eiamvuttikorn",
           "nickname": "Yo",
-          "role": "Civil Engineer"
+          "role": "Engineer / Operations & Finance Manager / Co-founder"
         }
       }
     },
@@ -155,12 +163,16 @@
     },
     "info": {
       "emailLabel": "Email",
-      "email": "hello@twodesk.studio",
+      "email": "td.info@twodeskstudio.com",
+      "phoneLabel": "Phone",
+      "phone": "095-952-4727",
       "socialLabel": "Social",
       "instagram": "@twodesk.studio",
-      "facebook": "Twodesk Studio",
+      "facebook": "Twodesk Studio Co.,Ltd.",
       "locationLabel": "Location",
-      "location": "Bangkok, Thailand"
+      "location": "99/542 Place and Park Na Klua, Phra Samut Chedi District, Samut Prakan 10290",
+      "hoursLabel": "Hours",
+      "hours": "Mon.–Fri. 9.00AM–7.00PM"
     },
     "form": {
       "heading": "Send us a message",
@@ -200,7 +212,7 @@
     "instagram": "Instagram",
     "facebook": "Facebook",
     "email": "Email",
-    "emailAddress": "hello@twodesk.studio",
+    "emailAddress": "td.info@twodeskstudio.com",
     "instagramHandle": "@twodesk.studio",
     "copyright": "© 2025 Two Desk Studio. All rights reserved.",
     "credit": "Designed & Developed by Best Solutions"

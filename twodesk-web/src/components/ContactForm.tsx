@@ -34,7 +34,7 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-6">
-      <h2 className="text-[24px] font-bold text-[#1a1a1a]">
+      <h2 className="mb-2 text-[24px] font-bold text-[#1a1a1a] md:text-[28px]">
         {t("heading")}
       </h2>
 
@@ -126,7 +126,7 @@ export default function ContactForm() {
       {/* Submit */}
       <button
         type="submit"
-        className="self-start bg-black px-10 py-3.5 text-sm font-medium text-white transition-colors hover:bg-[#333]"
+        className="w-full bg-black px-10 py-3.5 text-sm font-medium text-white transition-colors hover:bg-[#333] sm:w-auto sm:self-start"
       >
         {t("submit")}
       </button>

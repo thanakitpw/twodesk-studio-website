@@ -43,7 +43,7 @@ export default function ProjectsPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
-      <section className="mx-auto max-w-[1440px] px-6 pt-32 pb-12 md:px-20">
+      <section className="mx-auto max-w-[1440px] px-5 pt-28 pb-8 md:px-20 md:pt-32 md:pb-12">
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -71,18 +71,18 @@ export default function ProjectsPage() {
       </section>
 
       {/* Filters */}
-      <section className="mx-auto max-w-[1440px] px-6 pb-10 md:px-20">
+      <section className="mx-auto max-w-[1440px] px-5 pb-8 md:px-20 md:pb-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="flex flex-wrap gap-3"
+          className="flex flex-wrap gap-2 md:gap-3"
         >
           {categories.map((cat) => (
             <button
               key={cat.key}
               onClick={() => setActiveFilter(cat.key)}
-              className={`rounded-full border px-5 py-2 text-sm font-light transition-all ${
+              className={`rounded-full border px-4 py-1.5 text-xs md:px-5 md:py-2 md:text-sm font-light transition-all ${
                 activeFilter === cat.key
                   ? 'border-[#1a1a1a] bg-[#1a1a1a] text-white'
                   : 'border-[#e5e5e5] bg-white text-[#1a1a1a] hover:border-[#999]'
@@ -95,8 +95,8 @@ export default function ProjectsPage() {
       </section>
 
       {/* Grid */}
-      <section className="mx-auto max-w-[1440px] px-6 pb-24 md:px-20">
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+      <section className="mx-auto max-w-[1440px] px-5 pb-16 md:px-20 md:pb-24">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-6">
           {filtered.map((project, i) => (
             <motion.div
               key={project.id}
@@ -116,7 +116,7 @@ export default function ProjectsPage() {
                     alt={project.title}
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    sizes="(max-width: 768px) 100vw, 50vw"
+                    sizes="(max-width: 768px) 100vw, 33vw"
                   />
                 </div>
                 <div className="mb-1.5 flex gap-2">
@@ -128,7 +128,7 @@ export default function ProjectsPage() {
                     {project.category}
                   </span>
                 </div>
-                <h3 className="mb-1 text-xl font-semibold text-[#1a1a1a]">
+                <h3 className="mb-1 text-base font-semibold text-[#1a1a1a] md:text-xl">
                   {project.title}
                 </h3>
                 <p className="text-sm text-[#999]">{project.location}</p>

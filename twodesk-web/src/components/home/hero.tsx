@@ -4,7 +4,7 @@ export default function Hero() {
   const t = useTranslations("home");
 
   return (
-    <section className="relative h-[720px] overflow-hidden">
+    <section className="relative h-[420px] md:h-[85vh] overflow-hidden">
       {/* Background Image */}
       <img
         src="https://workers.paper.design/file-assets/01KKH1XNYR2JH27ZNJAM5Y6B8Q/5ZBHYX54W047K1FN4NSANHGY8Y.jpg"
@@ -14,7 +14,7 @@ export default function Hero() {
 
       {/* Gradient Overlay */}
       <div
-        className="absolute bottom-0 left-0 right-0 h-[360px]"
+        className="absolute bottom-0 left-0 right-0 h-[200px] md:h-[360px]"
         style={{
           background:
             "linear-gradient(to top, rgba(250,250,248,0.95) 0%, rgba(250,250,248,0.7) 50%, transparent 100%)",
@@ -22,8 +22,8 @@ export default function Hero() {
       />
 
       {/* Text */}
-      <div className="absolute bottom-16 left-20">
-        <h1 className="mb-4 text-[56px] font-bold leading-[64px] tracking-tight text-[#1a1a1a]">
+      <div className="absolute bottom-10 md:bottom-16 left-5 md:left-20">
+        <h1 className="mb-3 md:mb-4 text-[32px] md:text-[56px] font-bold leading-[38px] md:leading-[64px] tracking-tight text-[#1a1a1a]">
           {t("heroTitle")
             .split("\n")
             .map((line, i) => (
@@ -33,7 +33,7 @@ export default function Hero() {
               </span>
             ))}
         </h1>
-        <p className="text-[17px] font-light text-[#4a4a4a]">
+        <p className="text-[14px] md:text-[17px] font-light text-[#4a4a4a]">
           {t("heroSubtitle")}
         </p>
       </div>

@@ -3,6 +3,7 @@ import { Link } from '@/i18n/navigation';
 import { notFound } from 'next/navigation';
 import { getTranslations } from 'next-intl/server';
 import { projects } from '@/lib/data';
+import ProjectGallery from '@/components/ProjectGallery';
 
 interface Props {
   params: Promise<{ id: string; locale: string }>;
@@ -44,7 +45,7 @@ export default async function ProjectDetailPage({ params }: Props) {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Image */}
-      <section className="relative h-[50vh] w-full md:h-[70vh]">
+      <section className="relative h-[35vh] w-full md:h-[70vh]">
         <Image
           src={project.image}
           alt={project.title}
@@ -57,7 +58,7 @@ export default async function ProjectDetailPage({ params }: Props) {
       </section>
 
       {/* Project Info */}
-      <section className="mx-auto max-w-[1440px] px-6 py-16 md:px-20">
+      <section className="mx-auto max-w-[1440px] px-5 py-10 md:px-20 md:py-16">
         <Link
           href="/projects"
           className="mb-8 inline-flex items-center gap-2 text-sm text-[#999] transition-colors hover:text-[#1a1a1a]"
@@ -85,67 +86,55 @@ export default async function ProjectDetailPage({ params }: Props) {
             </p>
           </div>
 
-          <div className="shrink-0 space-y-4 border-t border-[#e5e5e5] pt-4 md:border-l md:border-t-0 md:pl-8 md:pt-0">
+          <div className="grid grid-cols-3 gap-4 border-t border-[#e5e5e5] pt-4 md:grid-cols-1 md:shrink-0 md:gap-4 md:border-l md:border-t-0 md:pl-8 md:pt-0">
             <div>
-              <p className="text-xs uppercase tracking-wider text-[#999]">
+              <p className="text-[10px] uppercase tracking-wider text-[#999] md:text-xs">
                 {t('location')}
               </p>
-              <p className="text-sm font-medium text-[#1a1a1a]">
+              <p className="text-xs font-medium text-[#1a1a1a] md:text-sm">
                 {project.location}
               </p>
             </div>
             <div>
-              <p className="text-xs uppercase tracking-wider text-[#999]">
+              <p className="text-[10px] uppercase tracking-wider text-[#999] md:text-xs">
                 {t('year')}
               </p>
-              <p className="text-sm font-medium text-[#1a1a1a]">
+              <p className="text-xs font-medium text-[#1a1a1a] md:text-sm">
                 {project.year}
               </p>
             </div>
             <div>
-              <p className="text-xs uppercase tracking-wider text-[#999]">
+              <p className="text-[10px] uppercase tracking-wider text-[#999] md:text-xs">
                 {t('category')}
               </p>
-              <p className="text-sm font-medium capitalize text-[#1a1a1a]">
+              <p className="text-xs font-medium capitalize text-[#1a1a1a] md:text-sm">
                 {project.category}
               </p>
             </div>
+            {project.area && (
+              <div>
+                <p className="text-[10px] uppercase tracking-wider text-[#999] md:text-xs">
+                  Area
+                </p>
+                <p className="text-xs font-medium text-[#1a1a1a] md:text-sm">
+                  {project.area}
+                </p>
+              </div>
+            )}
           </div>
         </div>
 
-        {/* Image Gallery (placeholder using same image) */}
-        <div className="mb-16 grid grid-cols-1 gap-4 md:grid-cols-2">
-          <div className="relative aspect-[4/3] overflow-hidden rounded">
-            <Image
-              src={project.image}
-              alt={`${project.title} — Detail 1`}
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw, 50vw"
-            />
-          </div>
-          <div className="relative aspect-[4/3] overflow-hidden rounded">
-            <Image
-              src={project.image}
-              alt={`${project.title} — Detail 2`}
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw, 50vw"
-            />
-          </div>
-          <div className="relative aspect-[16/9] overflow-hidden rounded md:col-span-2">
-            <Image
-              src={project.image}
-              alt={`${project.title} — Detail 3`}
-              fill
-              className="object-cover"
-              sizes="100vw"
-            />
-          </div>
+        {/* Image Gallery with Tabs + Lightbox */}
+        <div className="mb-10 md:mb-16">
+          <ProjectGallery
+            images={project.images ?? [project.image]}
+            imageGroups={project.imageGroups}
+            title={project.title}
+          />
         </div>
 
         {/* Next Project */}
-        <div className="border-t border-[#e5e5e5] pt-12">
+        <div className="border-t border-[#e5e5e5] pt-8 md:pt-12">
           <p className="mb-2 text-xs uppercase tracking-[0.2em] text-[#999]">
             {t('nextProject')}
           </p>

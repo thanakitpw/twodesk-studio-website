@@ -1,11 +1,19 @@
+export interface ImageGroup {
+  label: string;
+  images: string[];
+}
+
 export interface Project {
   id: string;
   title: string;
   category: 'cafe' | 'commercial' | 'residential' | 'others';
   location: string;
   year: string;
+  area?: string;
   description: string;
   image: string;
+  images?: string[];
+  imageGroups?: ImageGroup[];
 }
 
 export interface Article {
@@ -18,6 +26,49 @@ export interface Article {
 }
 
 export const projects: Project[] = [
+  {
+    id: 'hidden-sunken-hub',
+    title: 'Hidden Sunken Hub',
+    category: 'residential',
+    location: 'Samut Prakan, Thailand',
+    year: '2025',
+    area: '100 sq.m.',
+    description:
+      'An architecture that revives the memory of a place through reinterpretation. Hidden Sunken Hub is a residential project built upon the context of a former school swimming pool — a space that once embodied joy, vibrancy, and inspiration during childhood. The design adopts the concept of Closed–Open Architecture, creating a delicate balance between enclosure and openness.',
+    image: '/projects/hidden-sunken-hub/render/render-02.jpg',
+    images: [
+      '/projects/hidden-sunken-hub/render/render-01.jpg',
+      '/projects/hidden-sunken-hub/render/render-02.jpg',
+      '/projects/hidden-sunken-hub/render/render-03.jpg',
+      '/projects/hidden-sunken-hub/render/render-04.jpg',
+      '/projects/hidden-sunken-hub/render/render-05.jpg',
+    ],
+    imageGroups: [
+      {
+        label: 'Render 3D',
+        images: [
+          '/projects/hidden-sunken-hub/render/render-01.jpg',
+          '/projects/hidden-sunken-hub/render/render-02.jpg',
+          '/projects/hidden-sunken-hub/render/render-03.jpg',
+          '/projects/hidden-sunken-hub/render/render-04.jpg',
+          '/projects/hidden-sunken-hub/render/render-05.jpg',
+        ],
+      },
+      {
+        label: 'Construction',
+        images: Array.from({ length: 16 }, (_, i) =>
+          `/projects/hidden-sunken-hub/construction/photo-${String(i + 1).padStart(2, '0')}.jpg`
+        ),
+      },
+      {
+        label: 'Layout',
+        images: [
+          '/projects/hidden-sunken-hub/layout/plan-01.jpg',
+          '/projects/hidden-sunken-hub/layout/plan-02.jpg',
+        ],
+      },
+    ],
+  },
   {
     id: 'flow-the-hub',
     title: 'Flow the Hub',
@@ -94,5 +145,45 @@ export const articles: Article[] = [
       'Essential questions, budgets, and references you should gather before the first meeting.',
     image:
       'https://workers.paper.design/file-assets/01KKH1XNYR2JH27ZNJAM5Y6B8Q/2R9N3369092A7S0HFYXFY63TN7.jpg',
+  },
+  {
+    id: 'day-in-the-life',
+    title: 'A Day in the Life at Two Desk Studio',
+    category: 'Studio Life',
+    date: 'Dec 2024',
+    excerpt:
+      'From morning coffee to late-night renders — a glimpse into how our team works together.',
+    image:
+      'https://workers.paper.design/file-assets/01KKH1XNYR2JH27ZNJAM5Y6B8Q/7SKG9HWSF8DXDA2H3V0RPN1XS2.jpg',
+  },
+  {
+    id: 'material-palette',
+    title: 'Material Palette: Wood, Concrete & Steel',
+    category: 'Design Trends',
+    date: 'Nov 2024',
+    excerpt:
+      'Why these three materials continue to define the look of modern Thai interiors.',
+    image:
+      'https://workers.paper.design/file-assets/01KKH1XNYR2JH27ZNJAM5Y6B8Q/6GMP96ZK01XVNNGBCTJWT2KXQK.jpg',
+  },
+  {
+    id: 'office-sakaew-bts',
+    title: 'From Blueprint to Build: Office Sakaew',
+    category: 'Behind the Scenes',
+    date: 'Oct 2024',
+    excerpt:
+      'The creative journey of transforming a blank canvas into a dynamic office space.',
+    image:
+      'https://workers.paper.design/file-assets/01KKH1XNYR2JH27ZNJAM5Y6B8Q/5X8HXKMAD0GWBEAV630BRTGVSY.jpg',
+  },
+  {
+    id: 'small-space-condo',
+    title: 'Small Space, Big Impact: Condo Design Guide',
+    category: 'Tips',
+    date: 'Sep 2024',
+    excerpt:
+      'Practical tips for making the most of compact living spaces without compromising on style.',
+    image:
+      'https://workers.paper.design/file-assets/01KKH1XNYR2JH27ZNJAM5Y6B8Q/0KATTQ0NYTF7T4QVKDX0QH44BC.jpg',
   },
 ];

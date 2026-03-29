@@ -12,14 +12,14 @@ export default function Process() {
   const t = useTranslations("home");
 
   return (
-    <section className="mx-auto max-w-[1440px] px-20 py-[100px]">
-      <div className="flex gap-20">
+    <section className="mx-auto max-w-[1440px] px-5 md:px-20 py-16 md:py-[100px]">
+      <div className="flex flex-col md:flex-row gap-10 md:gap-20">
         {/* Left */}
-        <ScrollAnimate className="flex-none w-[480px]">
-          <p className="mb-4 text-xs font-normal uppercase tracking-[0.2em] text-[#999]">
+        <ScrollAnimate className="md:flex-none md:w-[480px]">
+          <p className="mb-3 md:mb-4 text-xs font-normal uppercase tracking-[0.2em] text-[#999]">
             {t("processLabel")}
           </p>
-          <h2 className="mb-4 text-[32px] font-bold leading-[1.2] tracking-tight">
+          <h2 className="mb-3 md:mb-4 text-[26px] md:text-[32px] font-bold leading-[1.2] tracking-tight">
             {t("processTitle")
               .split("\n")
               .map((line, i) => (
@@ -29,7 +29,7 @@ export default function Process() {
                 </span>
               ))}
           </h2>
-          <p className="text-[15px] leading-[1.6] text-[#666]">
+          <p className="text-[14px] md:text-[15px] leading-[1.6] text-[#666]">
             {t("processDescription")}
           </p>
         </ScrollAnimate>
@@ -39,16 +39,16 @@ export default function Process() {
           {STEPS.map((step, i) => (
             <ScrollAnimate
               key={i}
-              className={`flex items-start gap-6 border-b border-[#e5e5e5] py-6 ${
+              className={`group flex items-start gap-4 md:gap-6 border-b border-[#e5e5e5] py-5 md:py-6 cursor-default transition-all duration-300 hover:pl-3 hover:bg-[#fafaf8] ${
                 i === 0 ? "border-t" : ""
               }`}
             >
-              <div className="min-w-[48px] text-[32px] font-bold text-[#ccc]">
+              <div className="min-w-[40px] md:min-w-[48px] text-[26px] md:text-[32px] font-bold text-[#ccc] transition-colors duration-300 group-hover:text-[#1a1a1a]">
                 {step.num}
               </div>
               <div>
-                <h4 className="mb-1 text-base font-bold">{t(step.title)}</h4>
-                <p className="text-[13px] leading-[1.5] text-[#666]">
+                <h4 className="mb-1 text-sm md:text-base font-bold transition-colors duration-300 group-hover:text-[#333]">{t(step.title)}</h4>
+                <p className="text-[12px] md:text-[13px] leading-[1.5] text-[#666] transition-colors duration-300 group-hover:text-[#444]">
                   {t(step.desc)}
                 </p>
               </div>

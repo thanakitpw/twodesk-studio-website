@@ -6,8 +6,8 @@ export default function ContactCTA() {
 
   return (
     <div className="bg-black">
-      <section className="relative mx-auto max-w-[1440px] overflow-hidden px-20 py-[100px] text-center">
-        {/* Background overlay image */}
+      <section className="relative mx-auto max-w-[1440px] overflow-hidden px-5 py-16 text-center md:px-10 md:py-[80px] lg:px-20 lg:py-[100px]">
+        {/* Architectural sketch overlay */}
         <div className="pointer-events-none absolute inset-0 opacity-[0.08]">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
@@ -17,21 +17,23 @@ export default function ContactCTA() {
           />
         </div>
 
+        <div className="relative z-10">
         <p className="mb-4 text-xs font-normal uppercase tracking-[0.2em] text-white/50">
           {t("label")}
         </p>
-        <h2 className="mb-4 text-[44px] font-bold text-white">
+        <h2 className="mb-4 text-[28px] font-bold text-white md:text-[36px] lg:text-[44px]">
           {t("heading")}
         </h2>
-        <p className="mb-8 text-[15px] text-white/60">
+        <p className="mb-8 text-[14px] text-white/60 md:text-[15px]">
           {t("description")}
         </p>
         <Link
           href="/contact"
-          className="relative z-10 inline-block border border-white px-10 py-3.5 text-sm font-medium text-white transition-all duration-300 hover:bg-white hover:text-black"
+          className="relative z-20 inline-block border border-white bg-transparent px-10 py-3.5 text-sm font-medium !text-white transition-all duration-300 hover:bg-white hover:!text-black"
         >
           {t("button")}
         </Link>
+        </div>
       </section>
     </div>
   );

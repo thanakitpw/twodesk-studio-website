@@ -139,3 +139,12 @@
 - Portfolio showcase คือ core feature
 - Mobile-first เสมอ
 - ไฟล์ PRD ฉบับเต็ม: `project-detail.md` | PDF: `Two Desks Studio — PRD.pdf`
+
+---
+
+## ระบบหลังบ้าน (Admin Panel)
+- **อ้างอิงไฟล์ `ADMIN_SYSTEM_PLAN.md` เสมอ** — เป็น source of truth สำหรับ admin system ทั้งหมด
+- ประกอบด้วย 18 หน้าจอ, database schema, user roles, tech stack
+- ใช้ shadcn/ui + Twodesk DS (ขาว-ดำ-เทา, Helvetica)
+- ข้อมูลตัวอย่างโปรเจกต์ลูกค้า: `TD_PROJECT_TEXT.md`
+- Design mockups อยู่ใน Paper (artboards ชื่อ "Admin — ...")
